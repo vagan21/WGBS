@@ -1,0 +1,4 @@
+# GREAT version 4.0.4	Species assembly: hg38	Association rule: Basal+extension: 5000 bp upstream, 1000 bp downstream, 1000000 bp max extension, curated regulatory domains included
+# Term Name 	 Binom Rank 	 Binom Raw P-Value 	  Binom FDR Q-Val  	 Binom Fold Enrichment 	 Binom Observed Region Hits 	 Binom Region Set Coverage 	 Hyper Rank 	  Hyper FDR Q-Val  	 Hyper Fold Enrichment 	 Hyper Observed Gene Hits 	 Hyper Total Genes 	 Hyper Gene Set Coverage
+B cell receptor signaling pathway	20	2.548108e-12	1.6765276586000002e-9	2.045449	117	0.008056741	714	0.01669702568165266	1.627095	25	35	0.003032876	
+positive regulation of voltage-gated potassium channel activity	32	9.696717e-10	3.9874718438437497e-7	2.449651	60	0.004131662	608	0.008539130488486844	2.102707	12	13	0.001455781	

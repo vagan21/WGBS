@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1606156190731.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DB079C58",
+    "lastKnownWriteTime" : 1604343572,
+    "last_content_update" : 1606156412110,
+    "path" : "~/Desktop/PhD Research/WGBS_MethPipe_Islet_Cells/VerdaDO_ExampleScript.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "10,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
