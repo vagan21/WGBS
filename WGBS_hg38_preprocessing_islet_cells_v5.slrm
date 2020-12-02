@@ -46,9 +46,12 @@ echo "$INPUT_R1"
 echo "$INPUT_R2"
 echo "$filename"
 
-#Trim reads and assess quality with Trim Galore! 8-12hrs. #The input files can be zipped using gzip.
+##Trim reads and assess quality with Trim Galore! 8-12hrs The input files can be zipped using gzip##
 #Trim Galore is a wrapper tool around Cutadapt and FastQC
+#'--fastqc' runs FastQC on the FastQ file once trimming is complete
+#'--fastqc_args' passes extra arguments to FastQC (i.e., --paired, --retain_unpaired)
 #Took about ~10 hours to do FASTQC and trimming for Alpha
+
 echo "trimming ${filename}"
 trim_galore --fastqc --fastqc_args "--outdir ${VEA}/DNA_Methylation/2.1_trimmed_reads_FASTQC" --paired --retain_unpaired --output_dir ${VEA}/DNA_Methylation/2_trimmed_reads ${INPUT_R1} ${INPUT_R2}
 echo "trimming complete for ${filename}"
