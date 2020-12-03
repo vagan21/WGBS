@@ -7,7 +7,7 @@ cd /data/hodges_lab/aganve/data/DNA_Methylation/7_tracks
 ##Identify overlaps between beta-cell specific HMRs and B cell HMRs##
 ##30041 B cell HMRs; 14522 beta cell HMRs##
 ##306 overlaps##
-#'-u'reports overlaps between -a (Alpha) and -b (Beta) --> writes original 'a' entry once if any overlaps found in 'b'
+#'-u'reports the mere presence of any overlapping features between -a (Alpha) and -b (Beta) --> writes original 'a' entry once if any overlaps found in 'b'
 bedtools intersect -u -a Bcell.minsize50.filterforrefseqTSSexons.txt -b Beta_WGBS_rep1_S2.minsize50.filtforrefseqTSSexons.txt > CT\_all_shared_Bcell_Beta.txt
 
 ##Identify non-overlaps between beta-cell specific HMRs and B cell HMRs (i.e., beta-cell specific HMRs)##
