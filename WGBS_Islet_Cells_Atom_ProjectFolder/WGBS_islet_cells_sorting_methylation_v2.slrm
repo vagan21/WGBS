@@ -12,8 +12,8 @@
 
 #filename=$1 --> Alpha_WGBS_rep1_S3
 #filename=$1 --> Beta_WGBS_rep1_S2
-
-"daba daba doo"
+#filename=$1 --> PH_WGBS
+#filename=$1 --> SCbeta_WGBS
 
 ##Necessary to set this for proper sorting##
 ##LC_ALL is the environment variable that overrides all the other localisation settings##
@@ -32,12 +32,13 @@ SIZES='/data/hodges_lab/hg38_genome/hg38.chrom.sizes'
 date
 pwd
 
-# ##Sort mapped reads according to their reference sequence position##
-# ##Reads are sorted by chrom, start, end, strand##
-# ##Sorting takes the whole .mr file into RAM, sorts it into a new file, and spits it out. Beta .mr is 115 GB; alpha .mr is 60 GB##
-# ##May need twice 115GB, so 230GB. Max is 264GB##
-# ##Submit each sort command individually with plenty of RAM##
-# ##Sorting beta required 157 GB and 37'; alpha 96 GB and 23'##
+##Sort mapped reads according to their reference sequence position##
+##Reads are sorted by chrom, start, end, strand##
+##Sorting takes the whole .mr file into RAM, sorts it into a new file, and spits it out. Beta .mr is 115 GB; alpha .mr is 60 GB##
+##SC beta is 96GB; PH is 123GB##
+##May need twice 115GB, so 230GB. Max is 264GB##
+##Submit each sort command individually with plenty of RAM##
+##Sorting beta required 157 GB and 37'; alpha 96 GB and 23'##
 echo "sorting"
 sort -k 1,1 -k 2,2n -k 3,3n -k 6,6 -o ${VEA}/3_mapped_reads/Alpha_WGBS_rep1_S3.mr.sorted_start ${VEA}/3_mapped_reads/Alpha_WGBS_rep1_S3.mr
 sort -k 1,1 -k 2,2n -k 3,3n -k 6,6 -o ${VEA}/3_mapped_reads/Beta_WGBS_rep1_S2.mr.sorted_start ${VEA}/3_mapped_reads/Beta_WGBS_rep1_S2.mr
