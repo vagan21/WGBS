@@ -100,6 +100,7 @@ echo "finished generating epireads"
 ##Generate bigwig track for coverage (in terms of reads) for symmetric CpGs##
 ##6th column is the number of reads (or coverage) overlapping with that CpG site##
 ##bigWig format is needed to view the methylation level or read coverage at individual CpG sites in a genome browser such as UCSC##
+##bigWig = 'signal' file; it serves as the browser version of continuous data; compressed version of bedGraph
 echo "bigWig for coverage"
 awk '{OFS="\t"; print $1,$2,$2+1,$6}' < ${VEA}/4_meth_reads/${filename}_CpG.meth | wigToBigWig /dev/stdin ${SIZES} ${VEA}/7_tracks/${filename}_CpG.reads.bw
 echo "bigWig done for coverage"
@@ -110,8 +111,9 @@ echo "bigWig for methylation levels"
 awk '{OFS="\t"; print $1,$2,$2+1,$5}' < ${VEA}/4_meth_reads/${filename}_CpG.meth | wigToBigWig /dev/stdin ${SIZES} ${VEA}/7_tracks/${filename}_CpG.meth.bw
 echo "bigWig done for methylation levels"
 
-#Generate bigBed file of genomic intervals called as hypomethylated regions##
-#Use bigBed files to create bigBed browser tracks for HMRs in UCSC, for example##
+##Generate bigBed file of genomic intervals called as hypomethylated regions##
+##Use bigBed files to create bigBed browser tracks for HMRs in UCSC, for example##
+##BigBed = 'region' file; represents regions with concrete boundaries like HMRs; compressed version of bed file
 echo "create BB file"
 cut -f 1-3 ${VEA}/5_hmrs/${filename}.hmr > ${VEA}/7_tracks/${filename}.hmr.tmp
 bedToBigBed ${VEA}/7_tracks/${filename}.hmr.tmp ${SIZES} ${VEA}/7_tracks/${filename}.hmr.bb && rm ${VEA}/7_tracks/${filename}.hmr.tmp
@@ -119,3 +121,5 @@ echo "BB file done"
 
 date
 pwd
+
+##bigWig and bedGraph are both way friendlier to display for your computer; only require loading into memory the portion of the file represented by your view window rather than the entire file##

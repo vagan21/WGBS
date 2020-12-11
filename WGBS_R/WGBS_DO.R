@@ -72,12 +72,8 @@ strand(beta_cs_granges)
 granges(beta_cs_granges)
 
 # Combine into a list
-list_of_regions <- list(Adrenal=Adrenal_clust_cs_granges,
-                        Bcell=Bcell_clust_cs_granges,
-                        Liver=Liver_clust_cs_granges,
-                        fSpinal=fSpinal_clust_cs_granges,
-                        H1ESC=H1ESC_clust_cs_granges,
-                        Rvent=Rvent_clust_cs_granges)
+list_of_regions <- list(Alpha=alpha_cs_granges,
+                        Betacell=beta_cell_cs_granges)
 
 
 # Apply AnnotatePeak to this list 
