@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH --mail-user=verda.e.agan@vanderbilt.edu
+#SBATCH --mail-type=ALL
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=24:00:00
+#SBATCH --mem=8G
+#SBATCH --output=HMR_SNPenrichment_isletcells-%j.out
+#SBATCH --error=HMR_SNPenrichment_isletcells-%j.error
+#SBATCH --job-name=HMR_SNPenrichment_isletcells-%j
+
+##Set direcotry to location of python script##
+cd /data/hodges_lab/aganve/scripts
+
+##Load modules##
+module restore HMR_enrichment_tools_v2
+source activate /data/hodges_lab/doranser/conda/envs/pybed #conda activate
+
+##Run Python script##
+##Ran for 10' for 10 iterations##
+echo "starting alpha"
+python calculate_enrichment.py /data/hodges_lab/aganve/data/DNA_Methylation/5_hmrs/celltype_specific_hmrs/alpha/Alpha_WGBS.minsize50.filtforrefseqTSSexons.txt /data/hodges_lab/doranser/data/predixcan_db_bedfiles/Pancreas_predixcan_db.bed -i 1000 -s hg38 > /data/hodges_lab/aganve/results/enrichmentHMR_PrediXcan/alpha/HMR_enrichment_alphacells_i1000.txt
+echo "finished alpha"
+
+echo "starting beta"
+python calculate_enrichment.py /data/hodges_lab/aganve/data/DNA_Methylation/5_hmrs/celltype_specific_hmrs/beta/Beta_WGBS.minsize50.filtforrefseqTSSexons.txt /data/hodges_lab/doranser/data/predixcan_db_bedfiles/Pancreas_predixcan_db.bed -i 1000 -s hg38 > /data/hodges_lab/aganve/results/enrichmentHMR_PrediXcan/beta/HMR_enrichment_betacells_i1000.txt
+echo "finished beta"

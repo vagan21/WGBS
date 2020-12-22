@@ -97,7 +97,7 @@ echo "generate epireads"
 methstates -c ${GEN} -o ${VEA}/6_epireads/${filename}.epiread ${VEA}/3_mapped_reads/${filename}.mr.dremove
 echo "finished generating epireads"
 
-##Generate bigwig track for coverage (in terms of reads) for symmetric CpGs##
+##Generate bigWig track for coverage (in terms of reads) for symmetric CpGs##
 ##6th column is the number of reads (or coverage) overlapping with that CpG site##
 ##bigWig format is needed to view the methylation level or read coverage at individual CpG sites in a genome browser such as UCSC##
 ##bigWig = 'signal' file; it serves as the browser version of continuous data; compressed version of bedGraph
@@ -105,7 +105,7 @@ echo "bigWig for coverage"
 awk '{OFS="\t"; print $1,$2,$2+1,$6}' < ${VEA}/4_meth_reads/${filename}_CpG.meth | wigToBigWig /dev/stdin ${SIZES} ${VEA}/7_tracks/${filename}_CpG.reads.bw
 echo "bigWig done for coverage"
 
-##Generate bigwig of methylation levels for symmetric CpGs##
+##Generate bigWig of methylation levels for symmetric CpGs##
 ##5th column is the estimated methylation level, equal to the number of Cs in reads at position corresponding to the site, divided by the sum of the Cs and Ts mapping to that position
 echo "bigWig for methylation levels"
 awk '{OFS="\t"; print $1,$2,$2+1,$5}' < ${VEA}/4_meth_reads/${filename}_CpG.meth | wigToBigWig /dev/stdin ${SIZES} ${VEA}/7_tracks/${filename}_CpG.meth.bw
